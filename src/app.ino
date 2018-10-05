@@ -185,11 +185,8 @@ void collectData(){
      display.display();
      delay(2000);
      display.clearDisplay();
-     //sprintf(jsonString,"{\"sample\": %d, \"cpm\": %d, \"sv0\": %f, \"sv1\": %f, \"vis\": %d, \"ir\": %d, \"uv\": %f, \"hum\": %d, \"temp\": %d, \"hi\": %d, \"dp\": %d, \"time\": %d}", sample, cpm, sv0, sv1, vis, ir, uv, h, t, hi, dp, Time.local());
-     //Particle.publish("onData", jsonString);
-
-
-
+     sprintf(jsonString,"{\"sample\": %d, \"cpm\": %d, \"sv0\": %f, \"uv\": %f, \"hum\": %f, \"temp\": %f, \"time\": %d}", sample, cpm, sv0, uvIntensity, rel_hum, temp, Time.local());
+     Particle.publish("onData", jsonString);
  }
 }
 
